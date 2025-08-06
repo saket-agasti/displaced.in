@@ -45,12 +45,11 @@
   </section>
 
   <section id="map">
-    <h2>Interactive Map</h2>
-    <p>This map displays village relocations from Indian tiger reserves. Click on points to learn more.</p>
+    <h2>Map</h2>
+    <p>This map displays village relocations from Indian tiger reserves.</p>
     <div id="mapid"></div>
   </section>
-
-
+  
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:displacedindica@gmail.com">Email for Conversations</a></p>
@@ -60,30 +59,25 @@
     <p>&copy; 2025 Displaced Indica | Made with purpose for people and wildlife.</p>
   </footer>
 
-  <!-- Leaflet JS -->
+<!-- Leaflet JS -->
 <script
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-QV1MnfY54F6W9GC7ue/5P9NU5ZkN2+zHsMNuKau4j9I="
   crossorigin=""
 ></script>
 
-<!-- Google Maps base layer via Leaflet plugin (optional workaround) -->
-<script src="https://unpkg.com/leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js"></script>
-
 <script>
-  const map = L.map("mapid").setView([22.5937, 78.9629], 5); // Center on India
+  const map = L.map("mapid").setView([22.5937, 78.9629], 5);
 
-  const googleLayer = L.gridLayer.googleMutant({
-    maxZoom: 18,
-    type: "roadmap", // roadmap, satellite, terrain, hybrid
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  // Sample marker
-  L.marker([20.0738, 79.3607])
+  L.marker([20.2426, 79.3756])
     .addTo(map)
     .bindPopup("Tadoba-Andhari Tiger Reserve");
-
-  // More markers can be added here...
 </script>
+
 </body>
 </html>
