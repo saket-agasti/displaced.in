@@ -20,8 +20,12 @@ section {
   margin: auto;
 }
 
-h1, h2 {
-  color: #92e0c3;
+h1 {
+  color: #72b39b;
+}
+
+h2 {
+  color: #2b4b3f;
 }
 
 ul {
