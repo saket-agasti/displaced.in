@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Displaced Indica</title>
   <link rel="stylesheet" href="style.css"/>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-sA+e2tOZ6qjHmwZEk7PsISNy/CsFz8wP7V1fZcbZ4Sk="
+  crossorigin=""
+  />
 </head>
 <body>
   <header>
@@ -39,10 +45,11 @@
   </section>
 
   <section id="map">
-    <h2>Interactive Map (Coming Soon)</h2>
-    <p>This section will feature a pan-India map showing relocated and proposed villages from various Tiger Reserves.</p>
-    <div class="map-placeholder">🗺️ Map will be embedded here.</div>
+    <h2>Interactive Map</h2>
+    <p>This map displays village relocations from Indian tiger reserves. Click on points to learn more.</p>
+    <div id="mapid"></div>
   </section>
+
 
   <section id="contact">
     <h2>Contact</h2>
@@ -53,5 +60,31 @@
   <footer>
     <p>&copy; 2025 Displaced Indica | Made with purpose for people and wildlife.</p>
   </footer>
+
+  <!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-QV1MnfY54F6W9GC7ue/5P9NU5ZkN2+zHsMNuKau4j9I="
+  crossorigin=""
+></script>
+
+<!-- Google Maps base layer via Leaflet plugin (optional workaround) -->
+<script src="https://unpkg.com/leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js"></script>
+
+<script>
+  const map = L.map("mapid").setView([22.5937, 78.9629], 5); // Center on India
+
+  const googleLayer = L.gridLayer.googleMutant({
+    maxZoom: 18,
+    type: "roadmap", // roadmap, satellite, terrain, hybrid
+  }).addTo(map);
+
+  // Sample marker
+  L.marker([20.0738, 79.3607])
+    .addTo(map)
+    .bindPopup("Tadoba-Andhari Tiger Reserve");
+
+  // More markers can be added here...
+</script>
 </body>
 </html>
