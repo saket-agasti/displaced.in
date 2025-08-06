@@ -10,12 +10,12 @@ body {
 header {
   background: #1e2a2f;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
 section {
-  padding: 2rem;
+  padding: 1rem;
   max-width: 800px;
   margin: auto;
 }
