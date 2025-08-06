@@ -17,7 +17,6 @@
     <h1>Displaced Indica</h1>
     <p>A People's Archive on Conservation-Induced Displacement in India</p>
   </header>
-
   <section id="about">
     <h2>About the Project</h2>
     <p>
@@ -32,7 +31,6 @@
       Across the subcontinent, forests are being restored, tiger populations are rising, and protected areas are expanding. But in this effort to reclaim wilderness, thousands of families — many of them indigenous forest dwellers — have been asked to leave behind their homes, lands, and legacies. These are not just stories of loss, but also of transition, adaptation, and resilience.    </p>
     </p>
   </section>
-
   <section id="objectives">
     <h2>Objectives</h2>
     <ul>
@@ -43,20 +41,16 @@
       <li>Build a collaborative platform for practitioners, scholars, and local voices</li>
     </ul>
   </section>
-
   <section id="map">
     <h2>Interactive Map</h2>
     <p>This map displays village relocations from Indian tiger reserves. Click on points to learn more.</p>
     <div id="mapid"></div>
   </section>
-
-
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:displacedindica@gmail.com">Email for Conversations</a></p>
     <p>Follow us on GitHub: <a href="https://github.com/your-username/displaced-indica" target="_blank">View Project</a></p>
   </section>
-
   <footer>
     <p>&copy; 2025 Displaced Indica | Made with purpose for people and wildlife.</p>
   </footer>
@@ -67,23 +61,23 @@
   integrity="sha256-QV1MnfY54F6W9GC7ue/5P9NU5ZkN2+zHsMNuKau4j9I="
   crossorigin=""
 ></script>
-
-<!-- Google Maps base layer via Leaflet plugin (optional workaround) -->
-<script src="https://unpkg.com/leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js"></script>
-
 <script>
   const map = L.map("mapid").setView([22.5937, 78.9629], 5); // Center on India
 
-  const googleLayer = L.gridLayer.googleMutant({
-    maxZoom: 18,
-    type: "roadmap", // roadmap, satellite, terrain, hybrid
-  }).addTo(map);
+//  const googleLayer = L.gridLayer.googleMutant({
+//    maxZoom: 18,
+//    type: "satellite", // roadmap, satellite, terrain, hybrid
+//  }).addTo(map);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
   // Sample marker
   L.marker([20.0738, 79.3607])
     .addTo(map)
     .bindPopup("Tadoba-Andhari Tiger Reserve");
-
   // More markers can be added here...
 </script>
 </body>
